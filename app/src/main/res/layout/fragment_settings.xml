@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <!-- Map ImageView -->
+    <ImageView
+        android:id="@+id/ivMap"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_margin="15dp"
+        app:layout_constraintBottom_toTopOf="@id/layForm"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/ivLoc"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:background="@drawable/baseline_image_search_24"
+        android:contentDescription="Cursor location"
+        app:layout_constraintBottom_toBottomOf="@id/ivMap"
+        app:layout_constraintLeft_toLeftOf="@id/ivMap"
+        app:layout_constraintRight_toRightOf="@id/ivMap"
+        app:layout_constraintTop_toTopOf="@id/ivMap" />
+
+    <!-- Form for map size and offset details -->
+    <LinearLayout
+        android:id="@+id/layForm"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="24dp"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <!-- GridLayout for input fields -->
+        <GridLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:columnCount="2"
+            android:paddingHorizontal="15dp"
+            android:useDefaultMargins="true">
+
+            <!-- Editable fields -->
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_columnWeight="1"
+                android:hint="Offset X">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/offsetX"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="numberDecimal" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_columnWeight="1"
+                android:hint="Offset Y">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/offsetY"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="numberDecimal" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_columnWeight="1"
+                android:hint="Map Width (m)">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/mapSizeX"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="numberDecimal" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_columnWeight="1"
+                android:hint="Map Height (m)">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/mapSizeY"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="numberDecimal" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <!-- Non-editable fields -->
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_columnWeight="1"
+                android:hint="Map Pixels Size X">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/mapPixelsX"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:enabled="false"
+                    android:inputType="number" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_columnWeight="1"
+                android:hint="Map Pixels Size Y">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/mapPixelsY"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:enabled="false"
+                    android:inputType="number" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_columnWeight="1"
+                android:hint="Scale Pixels/Meter X">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/scalePixelsX"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:enabled="false"
+                    android:inputType="numberDecimal" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_columnWeight="1"
+                android:hint="Scale Pixels/Meter Y">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/scalePixelsY"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:enabled="false"
+                    android:inputType="numberDecimal" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+        </GridLayout>
+
+        <!-- Save Button -->
+        <Button
+            android:id="@+id/btnSave"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="16dp"
+            android:padding="12dp"
+            android:text="Save"
+            app:cornerRadius="8dp" />
+
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
